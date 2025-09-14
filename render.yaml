@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: apple-academy-api
+    env: java
+    buildCommand: mvn clean package
+    startCommand: java -jar target/apple-academy-api-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: APPLE_API_DB_URL
+        value: ${DB_URL}
+      - key: APPLE_API_DB_USERNAME
+        value: ${DB_USERNAME}
+      - key: APPLE_API_DB_PASSWORD
+        value: ${DB_PASSWORD}
+      - key: APPLE_API_JWT_SECRET
+        value: ${JWT_SECRET}
